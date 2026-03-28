@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  /* High-Impact Monochrome Lab Palette */
+  --studio-bg: #F2F2F2;
+  --studio-text: #000000;
+  --studio-accent: #C1FF00; /* Electric Lime */
+  --studio-accent-dim: rgba(193, 255, 0, 0.1);
+  --studio-muted: #666666;
+  --studio-border: rgba(0, 0, 0, 0.08);
+  --studio-grid: rgba(0, 0, 0, 0.04);
+  
+  /* Fonts - Bold & Technical */
+  --font-heading: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  
+  /* Precision Spacing */
+  --hud-height: clamp(60px, 8vh, 90px);
+  --hud-padding: clamp(1rem, 3vw, 2.5rem);
+  --section-gap: clamp(4rem, 8vw, 12rem);
+  --border-radius-sm: 4px;
+  --border-radius-md: 12px;
+  
+  /* Transitions - Snap & Fluid */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-hq: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--studio-bg);
+}
+
+body {
+  font-family: var(--font-mono);
+  background-color: var(--studio-bg);
+  color: var(--studio-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+}
+
+/* 1px Grid Layer - Laboratory Feel */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--studio-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--studio-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+/* HUD System components */
+.hud-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--studio-border);
+  background: rgba(242, 242, 242, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.hud-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--studio-muted);
+}
+
+.button-lab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  background: var(--studio-text);
+  color: var(--studio-bg);
+  text-transform: uppercase;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.button-lab:hover {
+  background: var(--studio-accent);
+  color: var(--studio-text);
+  transform: translateY(-2px);
+}
+
+.accent-pill {
+  padding: 0.2rem 0.6rem;
+  background: var(--studio-accent);
+  color: var(--studio-text);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+/* Technical Product Card */
+.lab-card {
+  border: 1px solid var(--studio-border);
+  background: var(--studio-bg);
+  transition: var(--transition-hq);
+  position: relative;
+  overflow: hidden;
+}
+
+.lab-card:hover {
+  border-color: var(--studio-accent);
+  background: #FFFFFF;
+}
+
+.lab-card:hover img {
+  transform: scale(1.05);
+  filter: saturate(1.2);
+}
+
+img {
+  transition: var(--transition-hq);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--studio-text);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--studio-accent);
+}
